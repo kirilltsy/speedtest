@@ -4,20 +4,26 @@
 
 using namespace std::chrono;
 const int MAXITER = 100000000;
-const int COUNT = 2;
+const int COUNT = 7;
 
 template<typename T>
 void f(int &a,float &b,int p);
 void fp();
 
 int main(){
-	int a = 0;
-	float b = 0;
 	fp();
 	for(int i=0; i<80;i++){
 		std::cout<<"#";
 	}
 	std::cout<<"\n";
+	auto start = high_resolution_clock::now();
+	fp();
+	auto end = high_resolution_clock::now();
+	for(int i=0; i<80;i++){
+		std::cout<<"#";
+	}
+	std::cout<<"\n";
+	std::cout<<int(duration_cast<seconds>(end - start).count())<<" sec";	
 	return 0;
 }
 
